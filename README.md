@@ -1,2 +1,3 @@
-# Codefroces
-hw from Codefroces
+# Codeforces
+Trainning with codeforces
+
