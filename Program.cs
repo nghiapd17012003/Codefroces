@@ -1,26 +1,35 @@
 ﻿using System;
 
-namespace _231A
+namespace _236A
 {
     class Program
     {
         static void Main(string[] args)
-        {
-            int noOfCase = int.Parse(Console.ReadLine());
-            int count = 0;
-            for (int a = 0; a < noOfCase; a++)
+        
             {
-                var line = Console.ReadLine();
-                var data = line.Split(' ');
-                int x = int.Parse(data[0]);
-                int y = int.Parse(data[1]);
-                int z = int.Parse(data[2]);
-                if (x + y + z >= 2)
+            var name = Console.ReadLine();
+            char[] array = name.ToCharArray();
+            int count = 0;
+            for (int a = 0; a < name.Length; a++)
+            {
+                for (int b = a+1; b < name.Length; b++)
                 {
-                    count++;
+                    if (array[a] == array[b])
+                    {
+                        count ++;
+                    }
                 }
             }
-            Console.WriteLine(count);
+
+            if ((name.Length - count ) % 2 == 0)
+            {
+                Console.WriteLine("CHAT WITH HER!");
+            }
+            else
+            {
+                Console.WriteLine("IGNORE HIM!");
+            }
+
         }
     }
 }
