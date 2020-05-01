@@ -1,35 +1,50 @@
 ﻿using System;
-using System.IO;
-namespace _1146A
+
+namespace _1294A
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string x = Console.ReadLine();
-            int count = 0 ;
-            
-            foreach (char d in x)
+            int t = int.Parse(Console.ReadLine());
+            string[] result = new string[t];
+            for (int d = 0; d < t; d++)
             {
-                if (d== 'a')
+                var line = Console.ReadLine();
+                var data = line.Split(' ');
+                int a = int.Parse(data[0]);
+                int b = int.Parse(data[1]);
+                int c = int.Parse(data[2]);
+                int n = int.Parse(data[3]);
+                int sum = 0;
+                
+                if (a >= b&&a >= c)
                 {
-                    count++;
-                }               
-            }
-            int n = x.Length - count;
-            int m = n - count;
-            if (m < 0)
-            {
-                Console.WriteLine(x.Length);
-            }
-            else
-            {
-                Console.WriteLine(x.Length - m - 1);
-            }
-            
+                    sum = 2 * a - b - c;
+                }
+                if(b>= a&&b>= c)
+                {
+                    sum = 2 * b - a - c;
+                }
+                else
+                {
+                    sum = 2 * c - b - a;
+                }
+                if ((n - sum) % 3 == 0 && n-sum >=0)
+                {
+                    result[d] = "YES";
+                }
+                else
+                {
+                    result[d] = "NO";
+                }
 
+            }
+            for (int e = 0; e < t; e++)
+            {
+                Console.WriteLine(result[e]);
+            }
 
         }
-
     }
 }
