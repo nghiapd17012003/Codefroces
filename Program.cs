@@ -1,41 +1,40 @@
 ﻿using System;
 
-namespace _1296B
+namespace _1312A
 {
     class Program
     {
         static void Main(string[] args)
         {
             int NoOfCase = int.Parse(Console.ReadLine());
-            double[] Result = new double[NoOfCase];
-            double[] k = new double[NoOfCase];
+            int[] count = new int[NoOfCase];
             for (int a = 0; a < NoOfCase; a++)
-            {             
-                string InPut = Console.ReadLine();
-                int InPutNo = int.Parse(InPut);              
-                var sum1 = 0;
-                int Sum = 0;
-                foreach (var element in InPut)
-                {
-                    sum1 += Convert.ToInt32(element.ToString());
-                }
-                for (int b = 0; b < InPut.Length; b++)
-                {
-                    Sum = Sum +InPutNo;
-                    InPutNo = (InPutNo - InPutNo % 10) / 10;
-                }   
-                Result[a] = Result[a] = (Sum + sum1/ 10);
-                k[a] = Result[a];
-                Math.Round(k[a], 0, MidpointRounding.AwayFromZero);
-
-                
-            }
-            for (int c = 0; c < NoOfCase; c++)
             {
-               
-                Console.WriteLine(k[c]);
+                var line = Console.ReadLine();
+                var data = line.Split(' ');
+                int n = int.Parse(data[0]);// so canh cua da giac luc dau   
+                int m = int.Parse(data[1]);// so canh cua da giac ma minh muon build
+                if (n % m == 0)
+                {
+                    count[a] = 0;
+                }
+                else
+                {
+                    count[a] = 1;
+                }
             }
+            for (int b = 0; b < NoOfCase; b++)
+            {
+                if (count[b] == 0)
+                {
+                    Console.WriteLine("YES");
+                }
+                if (count[b] == 1)
+                {
+                    Console.WriteLine("NO");
+                }
 
+            }
         }
     }
 }
