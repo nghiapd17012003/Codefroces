@@ -1,35 +1,35 @@
 ﻿using System;
-
-namespace _236A
+using System.IO;
+namespace _1146A
 {
     class Program
     {
         static void Main(string[] args)
-        
+        {
+            string x = Console.ReadLine();
+            int count = 0 ;
+            
+            foreach (char d in x)
             {
-            var name = Console.ReadLine();
-            char[] array = name.ToCharArray();
-            int count = 0;
-            for (int a = 0; a < name.Length; a++)
-            {
-                for (int b = a+1; b < name.Length; b++)
+                if (d== 'a')
                 {
-                    if (array[a] == array[b])
-                    {
-                        count ++;
-                    }
-                }
+                    count++;
+                }               
             }
-
-            if ((name.Length - count ) % 2 == 0)
+            int n = x.Length - count;
+            int m = n - count;
+            if (m < 0)
             {
-                Console.WriteLine("CHAT WITH HER!");
+                Console.WriteLine(x.Length);
             }
             else
             {
-                Console.WriteLine("IGNORE HIM!");
+                Console.WriteLine(x.Length - m - 1);
             }
+            
+
 
         }
+
     }
 }
