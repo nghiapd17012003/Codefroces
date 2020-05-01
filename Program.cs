@@ -1,30 +1,26 @@
 ﻿using System;
 
-namespace _38A
+namespace _231A
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
-            int[] d = new int[n - 1];
-            var line1 = Console.ReadLine();
-            var data1 = line1.Split(' ');
-            for (int c = 0; c < n - 1; c++)
+            int noOfCase = int.Parse(Console.ReadLine());
+            int count = 0;
+            for (int a = 0; a < noOfCase; a++)
             {
-                d[c] = int.Parse(data1[c]);
+                var line = Console.ReadLine();
+                var data = line.Split(' ');
+                int x = int.Parse(data[0]);
+                int y = int.Parse(data[1]);
+                int z = int.Parse(data[2]);
+                if (x + y + z >= 2)
+                {
+                    count++;
+                }
             }
-            var line2 = Console.ReadLine();
-            var data2 = line2.Split(' ');
-            int a = int.Parse(data2[0]);
-            int b = int.Parse(data2[1]);
-            int sum = 0;
-            for (int e = 0; e < b - a; e++)
-            {
-                sum =sum+d[a+e-1];
-            }
-            Console.WriteLine(sum);
-
+            Console.WriteLine(count);
         }
     }
 }
