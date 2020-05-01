@@ -1,48 +1,39 @@
 ﻿using System;
 
-namespace _1294A
+namespace _1296B
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int t = int.Parse(Console.ReadLine());
-            string[] result = new string[t];
-            for (int d = 0; d < t; d++)
-            {
-                var line = Console.ReadLine();
-                var data = line.Split(' ');
-                int a = int.Parse(data[0]);
-                int b = int.Parse(data[1]);
-                int c = int.Parse(data[2]);
-                int n = int.Parse(data[3]);
-                int sum = 0;
-                
-                if (a >= b&&a >= c)
+            int NoOfCase = int.Parse(Console.ReadLine());
+            double[] Result = new double[NoOfCase];
+            double[] k = new double[NoOfCase];
+            for (int a = 0; a < NoOfCase; a++)
+            {             
+                string InPut = Console.ReadLine();
+                int InPutNo = int.Parse(InPut);              
+                var sum1 = 0;
+                int Sum = 0;
+                foreach (var element in InPut)
                 {
-                    sum = 2 * a - b - c;
+                    sum1 += Convert.ToInt32(element.ToString());
                 }
-                if(b>= a&&b>= c)
+                for (int b = 0; b < InPut.Length; b++)
                 {
-                    sum = 2 * b - a - c;
-                }
-                else
-                {
-                    sum = 2 * c - b - a;
-                }
-                if ((n - sum) % 3 == 0 && n-sum >=0)
-                {
-                    result[d] = "YES";
-                }
-                else
-                {
-                    result[d] = "NO";
-                }
+                    Sum = Sum +InPutNo;
+                    InPutNo = (InPutNo - InPutNo % 10) / 10;
+                }   
+                Result[a] = Result[a] = (Sum + sum1/ 10);
+                k[a] = Result[a];
+                Math.Round(k[a], 0, MidpointRounding.AwayFromZero);
 
+                
             }
-            for (int e = 0; e < t; e++)
+            for (int c = 0; c < NoOfCase; c++)
             {
-                Console.WriteLine(result[e]);
+               
+                Console.WriteLine(k[c]);
             }
 
         }
