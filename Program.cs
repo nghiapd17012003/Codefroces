@@ -1,54 +1,30 @@
 ﻿using System;
 
-namespace _37A
+namespace _38A
 {
     class Program
     {
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
-            int result = n;
-            var line = Console.ReadLine();
-            var data = line.Split(' ');
-            int[] length = new int[n];
-            for (int a = 0; a < n; a++)
+            int[] d = new int[n - 1];
+            var line1 = Console.ReadLine();
+            var data1 = line1.Split(' ');
+            for (int c = 0; c < n - 1; c++)
             {
-                length[a] = int.Parse(data[a]);
+                d[c] = int.Parse(data1[c]);
             }
-            int[] count = new int [n];
-            for (int c = 0; c < n; c++)
+            var line2 = Console.ReadLine();
+            var data2 = line2.Split(' ');
+            int a = int.Parse(data2[0]);
+            int b = int.Parse(data2[1]);
+            int sum = 0;
+            for (int e = 0; e < b - a; e++)
             {
-                count[c] = 1;
+                sum =sum+d[a+e-1];
             }
- 
-            for(int b = 0; b < n; b ++)
-            {
-                for (int c = b; c < n-1; c++)
-                {
-                    if (length[b] == length[c+1])
-                    {    
-                        result=result-1;
-                        count[b]= count[b]+1;
-                    }
-                }
-            }
-            int result2 = count[0];
-            for (int d = 0; d < n-1; d++)
-            {
-                if (count[d] > result2)
-                {
-                    result2 = count[d];
-                }
-            }
-            if (n == 123 || n == 141)
-            {
-                result = result + 1;
-            }
-            if (n >= 185)
-            {
-                result = result + 2;
-            }
-            Console.WriteLine("{0} {1}",result2 , result);
+            Console.WriteLine(sum);
+
         }
     }
 }
